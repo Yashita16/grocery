@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import { Route, Routes, useLocation } from 'react-router-dom'
+import {Toaster} from 'react-hot-toast'
+
 
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller")
@@ -9,6 +11,8 @@ const App = () => {
     <div>
 
       {isSellerPath ? null : <Navbar />}
+
+      <Toaster/>
       
 
 
