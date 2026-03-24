@@ -8,6 +8,9 @@ import { useAppContext } from './context/AppContext.jsx'
 import Login from './components/Login.jsx'
 import AllProducts from './pages/AllProducts.jsx'
 import ProductCategory from './pages/ProductCategory.jsx'
+import ProductDetails from './pages/ProductDetails.jsx'
+import Cart from './pages/Cart.jsx'
+import AddAddress from './pages/AddAddress.jsx'
 
 
 const App = () => {
@@ -32,7 +35,13 @@ const App = () => {
           <Route path='/' element={<Home />}></Route>
           <Route path='/products' element={<AllProducts />}></Route>
          <Route path='/products/:category' element={<ProductCategory />}></Route>
+       
+        <Route path='/products/:category/:id' element={<ProductDetails />}></Route>
+       
+        <Route path='/cart' element={<Cart />}></Route>
+        <Route path='/add-address' element={<AddAddress></AddAddress>}></Route>
         </Routes>
+
       </div>
 
       {!isSellerPath && <Footer />}
