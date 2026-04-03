@@ -28,7 +28,7 @@ const addressSchema = new mongoose.Schema({
       required: true
      },
      state:{
-      tyep:String ,
+      type:String ,
       required: true
      },
      zipcode:{
@@ -36,7 +36,7 @@ const addressSchema = new mongoose.Schema({
       required: true
      },
      country:{
-      tyep:String,
+      type:String,
       required: true
      },
      phone:{
@@ -46,7 +46,7 @@ const addressSchema = new mongoose.Schema({
 })
 
 
-const Address = mongoose.model.address || mongoose.model('address' , addressSchema)
+const Address = mongoose.models.address || mongoose.model('address', addressSchema)
 
 
 export default Address

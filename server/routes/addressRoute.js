@@ -1,5 +1,5 @@
 import express from 'express'
-import authSeller from '../middlewares/authSeller'
+
 import authUser from '../middlewares/authUser.js'
 import { addAddress, getAddress } from '../controllers/addressController.js'
 

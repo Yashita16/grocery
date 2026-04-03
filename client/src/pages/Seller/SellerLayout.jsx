@@ -2,9 +2,10 @@ import React from 'react'
 import { useAppContext } from '../../context/AppContext';
 import { assets } from '../../assets/assets';
 import { Link, NavLink, Outlet} from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const SellerLayout = () => {
-  const {setIsSeller , navigate }=useAppContext()
+  const { navigate , axios }=useAppContext()
 
  
 
@@ -17,7 +18,19 @@ const SellerLayout = () => {
     ];
 
     const logout = async ()=>{
-      setIsSeller(false);
+       try {
+          const {data} = await axios.get('/api/seller/logout')
+          if(data.success){
+             toast.success(data.message)
+             navigate('/')
+          }
+          else{
+            toast.error(data.message)
+          }
+       } catch (error) {
+        toast.error(error.message)
+        
+       }
     }
 
   return (
@@ -33,7 +46,7 @@ const SellerLayout = () => {
                       
                     } 
                     
-                    className='border rounded-full text-sm px-4 py-1'>Logout</button>
+                    className='border rounded-full text-sm px-4 py-1 cursor-pointer'>Logout</button>
                 </div>
             </div>
             <div className='flex'>

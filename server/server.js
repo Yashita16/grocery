@@ -11,6 +11,7 @@ import sellerRouter from './routes/SellerRoute.js';
 import ProductRouter from './routes/productRoute.js';
 import cartRouter from './routes/cartRoute.js';
 import addressRouter from './routes/addressRoute.js';
+import OrderRouter from './routes/OrderRoute.js';
 
 const app=express();
 const port = process.env.PORT || 4000;
@@ -39,8 +40,11 @@ app.use('/api/seller' , sellerRouter)
 app.use('/api/product' , ProductRouter)
 app.use('/api/cart' , cartRouter)
 app.use('/api/address' , addressRouter)
+app.use('/api/order', OrderRouter)
+
 
 app.listen(port , ()=>{
-  console.log(`server is sunning on http://localhost:${port}`)
+  console.log(`server is running on http://localhost:${port}`)
 })
+  
 
